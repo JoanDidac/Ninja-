@@ -1,4 +1,4 @@
-# Game name
+# NinJam: Freestyle of Death
 
 <!-- When you finish, add a nice screenshot of your game -->
 <!--[<img src="./img/page.png">]()-->
