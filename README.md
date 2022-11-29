@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Baker Street
+=======
+# NinJam: Freestyle of Death
+>>>>>>> 42ed800e4ec63ae119ed02285752ca9e17725986
 
 <!-- When you finish, add a nice screenshot of your game -->
 <!--[<img src="./img/page.png">]()-->
