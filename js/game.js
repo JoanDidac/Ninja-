@@ -1,7 +1,7 @@
 class Game{
   constructor(ctx) {
     this.ctx = ctx;
-    this.ninja = new Player (500,400,70,70);
+    this.ninja = new Player(450,530,70,70);
     this.points = 0;
     this.droplets = [];
     this.generateInterval = undefined;
@@ -15,25 +15,25 @@ class Game{
     this.generateInterval = setInterval(() => {
       const newDroplet = new Droplet();
       //effects?
-      newDroplet._assignRole();
+      newDroplet._assignRole(); 
       newDroplet._assignImage();
-      newDroplet._fallDown();
+      // newDroplet._fallDown();
     
       this.droplets.push(newDroplet);
     }, 1000)
   }
   
   _drawDroplets() {
-    this.droplets.forEach((elem) => {
-      this.ctx.beginPath()
-      this.ctx.fillStyle = "red";
-      this.ctx.arc(elem.x, elem.y, elem.width, 0, 2 * Math.PI);
-      this.ctx.fill();
-      this.ctx.closePath()
-      this.ctx.drawImage(elem.image, elem.x, elem.y, elem.width, elem.height);
+    this.droplets.forEach((droplet) => {
+      this.ctx.drawImage(droplet.image, droplet.x, droplet.y, droplet.width, droplet.height);
     })
   }
 
+  _fallDown() {
+    setInterval(() => {
+        this.y = this.y + 1 ;
+    }, 100)
+}
   _assignControls() {
     // Controles del teclado
     document.addEventListener('keydown', (event) => {
@@ -66,24 +66,20 @@ class Game{
       if(this.points < 0 ) {
         this.gameOver();
       }
-      let.index = this.droplets.indexOf(droplet);
-      this.droplets.splice(index, 1);
+      let index = this.droplets.indexOf(droplet);
+      this.droplets.splice(index, 1);//what is this doing? 
     })
   
   }
   _writeScore() {
-    this.ctx.fillStyle = "lightgrey";
+    this.ctx.fillStyle = "black";
     this.ctx.font = "25px Lucida";
     this.ctx.fillText(`Points: ${this.points}`, 850,550);
 
   }
 
-  _drawNinja() {
-  this.ctx._drawNinja(this.ninja.image, this.ninja.x, this.ninja.y, this.ninja.width, this.ninja.height);
-  }
-
-  _clean()
-{ this.ctx.clearRect(0, 0, 1000, 600);
+  _clean() {
+     this.ctx.clearRect(0, 0, 1000, 600);
   // this._clean();
   // this._drawNinja();
   // window.requestAnimationFrame(() => this._update());
@@ -103,7 +99,9 @@ _gameOver() {
     this._createDroplets();
     this._assignControls();
     this._checkCollisions();
+    // this._fallDown();
     this._writeScore();
+    // this.gameOver();//?/??
     window.requestAnimationFrame(() => this._update());
   }
 

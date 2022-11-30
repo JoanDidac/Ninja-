@@ -1,4 +1,4 @@
-new class Player { //separate player class from Boss/Enemy class in a diferent file? 
+class Player { //separate player class from Boss/Enemy class in a diferent file? 
     constructor(x, y, width, height) {
         this.image =  ninja;
         this.x = x;
@@ -12,21 +12,21 @@ new class Player { //separate player class from Boss/Enemy class in a diferent f
         
       }
       moveRight() {
-        this.x = this.x + 10;
+        this.x = this.x + 0.1;
         if(this.x > 1000) { 
             this.x = 0 - this.width;
         }
 
       }
       moveLeft() {
-        this.x = this.x - 10;
+        this.x = this.x - 0.1;
         if(this.x + this.width < 0) {
             this.x = 1000;
         }
       }
 
       moveUp() {
-        this.y = this.y - 10;
+        this.y = this.y - 0.1;
         if(this.y + this.height < 0) {
             this.y = 600;
 
@@ -34,10 +34,14 @@ new class Player { //separate player class from Boss/Enemy class in a diferent f
     } 
 
       moveDown() {
-        this.y = this.y + 10;
-        if(this.y + this.height < 600) { // 600 para que no se salga del canvas
-            this.y = 600;
+        this.y = this.y + 0.1;
+        if(this.y > 600) { // 600 para que no se salga del canvas
+            this.y = 0;
       }
+
+    // moveDiagonal() {} ????
+
+    
     //   shoot() { //should be a class instead of a method? / should shoot kunai from player's position when button is pressed
     
     //   }
