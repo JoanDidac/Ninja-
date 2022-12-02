@@ -21,7 +21,7 @@ class Game{
       newDroplet._fallDown();
     
       this.droplets.push(newDroplet);//1 por segundo??? too quick? 
-    }, 1000)
+    },1000)
   }
   
   _drawDroplets() {
@@ -38,7 +38,7 @@ class Game{
         clearInterval(this.fallInterval);//???fall interval is not defined? 
     }
     
-}, 100)
+}, 10)
 }
   _assignControls() {
     // Controles del teclado
@@ -90,7 +90,7 @@ class Game{
         this.points--;
         //(Kunai contra droplet, Kunai contra Boss, droplet contra Ninja y Boss contra Ninja. )
     }
-      if(this.points < 0 ) {
+      if(this.points <= 0 ) {
         this.gameOver();
       }
       let index = this.droplets.indexOf(droplet);

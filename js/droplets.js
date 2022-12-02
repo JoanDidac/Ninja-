@@ -16,9 +16,9 @@ class Droplet {//Shall we say Army instead???
         if(this.y > 600 ){
             clearInterval(this.fallInterval);//???fall interval is not defined? 
          }
-         this.y = this.y + 10;
+         this.y = this.y + 1;
         
-    }, 100)
+    }, 15)
 }
 
     _assignRole() { // Quiza seria mas facil y efectivo crear un array con el porcentaje de enemigos malos y buenos ya predeterminado y retocarlo con un mathrandom del array.
