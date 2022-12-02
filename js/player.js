@@ -12,36 +12,44 @@ class Player { //separate player class from Boss/Enemy class in a diferent file?
         
       }
       moveRight() {
-        this.x = this.x + 0.1;
+        this.x = this.x + 15;
         if(this.x > 1000) { 
             this.x = 0 - this.width;
         }
 
       }
       moveLeft() {
-        this.x = this.x - 0.1;
+        this.x = this.x - 15;
         if(this.x + this.width < 0) {
             this.x = 1000;
         }
       }
 
-      moveUp() {
-        this.y = this.y - 0.1;
-        if(this.y + this.height < 0) {
-            this.y = 600;
+      shoot() {//fireKunai(), createKunai(), and moveKunai(). fireKunai() calls createKunai() which creates the Kunai Image 
+        //the image should be save into a variable. fireKunai then calls moveKunai() with an argument of the newly created kunai, 
+        //moveKunai then moves the kunai until it exits the canvas and gets removed by a clear interval??? 
+
+
 
       }
-    } 
+    //   moveUp() {
+    //     this.y = this.y - 10;
+    //     if(this.y + this.height < 0) {
+    //         this.y = 600;
 
-      moveDown() {
-        this.y = this.y + 0.1;
-        if(this.y > 600) { // 600 para que no se salga del canvas
-            this.y = 0;
-      }
+    //   }
+    // } 
 
-    // moveDiagonal() {} ????
+    //   moveDown() {
+    //     this.y = this.y + 10;
+    //     if(this.y > 600) { // 600 para que no se salga del canvas
+    //         this.y = 0;
+    //   }
+    // }
 
-    
+    // moveDiagonal() {} ???? <<<< Backlog
+
+
     //   shoot() { //should be a class instead of a method? / should shoot kunai from player's position when button is pressed
     
     //   }
@@ -53,7 +61,8 @@ class Player { //separate player class from Boss/Enemy class in a diferent file?
     //   }
 }
 
+
 // class Boss extends Player {}
     //      constructor(name) {
     //         this.shoot = 50;
-}
+
