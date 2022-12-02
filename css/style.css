@@ -4,13 +4,13 @@
 }
 
 /* Basic styles, change according to your style */
-/* #canvas {
-  background-image: url(/images.js/background\ image\ 1.png);
+#canvas {
+  background-image: url('/images.js/Backgrounds/Space\ invaders\ /');
   background-size: 1000px ,600px;
   background-repeat: no-repeat;
   background-position: 90%;
   
-} */
+}
 #start-page,
 #lose-page {
   height: 600px;

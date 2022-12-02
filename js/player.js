@@ -5,6 +5,7 @@ class Player { //separate player class from Boss/Enemy class in a diferent file?
         this.y = y ;
         this.width = width;
         this.height = height;
+        // this.kunai.image = undefined;
         //this.position = to store the current position so we can shoot from there.
         // this.ctx = context;
         // this.moveUp = ;
@@ -25,10 +26,10 @@ class Player { //separate player class from Boss/Enemy class in a diferent file?
         }
       }
       moveUp() {
-            this.y = this.y - 10;
+            this.y = this.y - 10; //console.log("moving up!");
             if(this.y + this.height < 0) {
                 this.y = 600;
-                console.log('moving up!');
+                
     
           }
         } 
@@ -40,13 +41,44 @@ class Player { //separate player class from Boss/Enemy class in a diferent file?
           }
         }
 
-      shoot() {//fireKunai(), createKunai(), and moveKunai(). fireKunai() calls createKunai() which creates the Kunai Image 
+      kunaiMove() {
+
+      this.y = this.y - 10;
+        if ( "Space" === true) {
+          _moveKunai();
+          console.log("kunai va!");
+        }
+        let index = this.kunaiArray.indexOf(kunaiArray);
+        this.kunaiArray.splice(index, 1);
+      }
+      
+      
+
+      
+
+
+
+
+
+
+      //   if ( document.addEventListener('keydown', (event) => {       
+      //       switch (event.code) {
+      //         case '"Space"':
+      //           shoot();
+      //           console.log("shoot!");
+      //       }
+      //     })
+      //   )
+      
+        
+          //fireKunai(), createKunai(), and moveKunai(). fireKunai() calls createKunai() which creates the Kunai Image 
         //the image should be save into a variable. fireKunai then calls moveKunai() with an argument of the newly created kunai, 
         //moveKunai then moves the kunai until it exits the canvas and gets removed by a clear interval??? 
 
 
 
-      }
+     
+        
     // 
 
     // moveDiagonal() {} ???? <<<< Backlog
@@ -61,10 +93,10 @@ class Player { //separate player class from Boss/Enemy class in a diferent file?
     //   receiveDamage( ){//Should be a method to substract 1 live from counter when droplet or katana collide with Player?
 
     //   }
-}
+
 
 
 // class Boss extends Player {}
     //      constructor(name) {
     //         this.shoot = 50;
-
+      }

@@ -11,6 +11,24 @@ class Game{
     this.ctx.drawImage(this.ninja.image,this.ninja.x,this.ninja.y,this.ninja.width,this.ninja.height);
   }
 
+
+  _createKunai() {
+    this.kunai.x = this.ninja.x + this.ninja.width/2;
+    this.kunai.y = this.ninja.y;//+ ninja.height?
+    const newKunai = new Kunai(); 
+    // newKunai.moveUpKunai();
+    if (newKunai.image === Kunai.image) {
+    this.kunaiArray.push(newKunai);
+    console.log("pium!! pium!!");
+  }
+
+  }
+
+  _drawKunai() {
+    this.ctx.drawImage(this.kunai.image,this.kunai.x,this.kunai.y,this.kunai.width,this.kunai.height);
+
+  }
+
   _createDroplets() {
     this.x =  Math.floor(Math.random() * 950);
     this.y = Math.floor(Math.random() * -100); 
@@ -40,6 +58,19 @@ class Game{
     
 }, 10)
 }
+
+shoot() {
+  if ( "keydown" === "Space") {
+    
+    _createKunai();
+    _drawKunai();
+    _moveKunai();
+    console.log("kunai va!");
+  }
+  let index = this.kunaiArray.indexOf(kunaiArray);
+  this.kunaiArray.splice(index, 1);
+}
+
   _assignControls() {
     // Controles del teclado
     document.addEventListener('keydown', (event) => {
@@ -56,6 +87,9 @@ class Game{
           break;
           case 'ArrowDown':
           this.ninja.moveDown();
+          break;
+          case 'Space':     //>>>>>>>>added , remobable.
+            shoot();
         default:
           break;
 
