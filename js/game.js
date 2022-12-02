@@ -51,13 +51,13 @@ class Game{
         case 'ArrowRight':
           this.ninja.moveRight();
           break;
-          // case 'ArrowUp':
-          // this.ninja.moveUp();
-          // break;
-          // case 'ArrowDown':
-          // this.ninja.moveDown();
-        // default:
-        //   break;
+          case 'ArrowUp':
+          this.ninja.moveUp();
+          break;
+          case 'ArrowDown':
+          this.ninja.moveDown();
+        default:
+          break;
 
 
         // document.addEventListener('keydown', (event) => {        ========>>>>>>> Space bar = Shoot()
@@ -71,10 +71,9 @@ class Game{
   _checkCollisions() {
     this.droplets.forEach((droplet) => {
       if ( (
-        this.ninja.x >= droplet.x && this.ninja.x <= droplet.x + droplet.width ||
-          this.ninja.x + this.ninja.width >= droplet.x && this.ninja.x + this.ninja.width <= droplet.x + droplet.width ||
-          // Incluso si mi meatball es más grande que el droplet
-          droplet.x >= this.ninja.x && droplet.x <= this.ninja.x + this.ninja.width 
+        this.ninja.x >= droplet.x && this.ninja.x <= droplet.x + droplet.width || // si cabeza toca.x toca con pies.ycabeza parte izq.x toca con pies.y ancho de pies...
+          this.ninja.x + this.ninja.width >= droplet.x && this.ninja.x + this.ninja.width <= droplet.x + droplet.width ||//asi por todos los lados izq,der,arr,aba.
+          droplet.x >= this.ninja.x && droplet.x <= this.ninja.x + this.ninja.width // 
           )
           &&
           (
@@ -82,7 +81,7 @@ class Game{
             this.ninja.y + this.ninja.height >= droplet.y && this.ninjay + this.ninja.height <= droplet.y + droplet.height ||
             droplet.y >= this.ninja.y && droplet.y <= this.ninja.y + this.ninja.height 
           )
-          )
+          ) {
           
 
        if (droplet.role === 'dragon') { ///start roles 
@@ -96,6 +95,7 @@ class Game{
       }
       let index = this.droplets.indexOf(droplet);
       this.droplets.splice(index, 1);//what is this doing? 
+    }
     })
   
   }

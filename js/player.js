@@ -24,6 +24,21 @@ class Player { //separate player class from Boss/Enemy class in a diferent file?
             this.x = 1000;
         }
       }
+      moveUp() {
+            this.y = this.y - 10;
+            if(this.y + this.height < 0) {
+                this.y = 600;
+                console.log('moving up!');
+    
+          }
+        } 
+    
+          moveDown() {
+            this.y = this.y + 10;
+            if(this.y > 600) { // 600 para que no se salga del canvas
+                this.y = 0;
+          }
+        }
 
       shoot() {//fireKunai(), createKunai(), and moveKunai(). fireKunai() calls createKunai() which creates the Kunai Image 
         //the image should be save into a variable. fireKunai then calls moveKunai() with an argument of the newly created kunai, 
@@ -32,20 +47,7 @@ class Player { //separate player class from Boss/Enemy class in a diferent file?
 
 
       }
-    //   moveUp() {
-    //     this.y = this.y - 10;
-    //     if(this.y + this.height < 0) {
-    //         this.y = 600;
-
-    //   }
-    // } 
-
-    //   moveDown() {
-    //     this.y = this.y + 10;
-    //     if(this.y > 600) { // 600 para que no se salga del canvas
-    //         this.y = 0;
-    //   }
-    // }
+    // 
 
     // moveDiagonal() {} ???? <<<< Backlog
 
