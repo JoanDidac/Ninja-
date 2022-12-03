@@ -68,6 +68,7 @@ class Game{
           break;
           case 'Space':     //>>>>>>>>added , remobable.
             this.ninja.shoot();
+            console.log(this.droplets);
         default:
           break;
 
