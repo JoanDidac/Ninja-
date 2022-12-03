@@ -12,22 +12,12 @@ class Game{
   }
 
 
-  _createKunai() {
-    this.kunai.x = this.ninja.x + this.ninja.width/2;
-    this.kunai.y = this.ninja.y;//+ ninja.height?
-    const newKunai = new Kunai(); 
-    // newKunai.moveUpKunai();
-    if (newKunai.image === Kunai.image) {
-    this.kunaiArray.push(newKunai);
-    console.log("pium!! pium!!");
-  }
-
-  }
-
   _drawKunai() {
-    this.ctx.drawImage(this.kunai.image,this.kunai.x,this.kunai.y,this.kunai.width,this.kunai.height);
-
+    this.ninja.kunaiArray.forEach((elem) => {
+      this.ctx.drawImage(elem.image, elem.x, elem.y, elem.width, elem.height); //el que deberia pintar lo escoge donde? segun el role pero desde aqui puede acceder?
+    })
   }
+  
 
   _createDroplets() {
     this.x =  Math.floor(Math.random() * 950);
@@ -59,18 +49,6 @@ class Game{
 }, 10)
 }
 
-shoot() {
-  if ( "keydown" === "Space") {
-    
-    _createKunai();
-    _drawKunai();
-    _moveKunai();
-    console.log("kunai va!");
-  }
-  let index = this.kunaiArray.indexOf(kunaiArray);
-  this.kunaiArray.splice(index, 1);
-}
-
   _assignControls() {
     // Controles del teclado
     document.addEventListener('keydown', (event) => {
@@ -89,7 +67,7 @@ shoot() {
           this.ninja.moveDown();
           break;
           case 'Space':     //>>>>>>>>added , remobable.
-            shoot();
+            this.ninja.shoot();
         default:
           break;
 

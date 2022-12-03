@@ -5,6 +5,7 @@ class Player { //separate player class from Boss/Enemy class in a diferent file?
         this.y = y ;
         this.width = width;
         this.height = height;
+        this.kunaiArray = [];
         // this.kunai.image = undefined;
         //this.position = to store the current position so we can shoot from there.
         // this.ctx = context;
@@ -41,16 +42,13 @@ class Player { //separate player class from Boss/Enemy class in a diferent file?
           }
         }
 
-      kunaiMove() {
-
-      this.y = this.y - 10;
-        if ( "Space" === true) {
-          _moveKunai();
-          console.log("kunai va!");
+        shoot() {
+          const newKunai = new Kunai(this.x + this.width/2 , this.y);
+          this.kunaiArray.push(newKunai);
+          newKunai._moveUpKunai();
         }
-        let index = this.kunaiArray.indexOf(kunaiArray);
-        this.kunaiArray.splice(index, 1);
-      }
+
+     
       
       
 

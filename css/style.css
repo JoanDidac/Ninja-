@@ -4,13 +4,33 @@
 }
 
 /* Basic styles, change according to your style */
-#canvas {
-  background-image: url('/images.js/Backgrounds/Space\ invaders\ /');
+/* #canvas {
+  background-image: url('/images.js/Backgrounds/comic\ background\ 4.jpeg');
   background-size: 1000px ,600px;
   background-repeat: no-repeat;
   background-position: 90%;
   
+} */
+#start-page {
+  background-image: url(/images.js/Backgrounds/Neon\ ninja\ city\ image.jpg);
+  background-size: cover;
+  justify-content: center;
+  align-items: center;
+  display: block;
 }
+
+h1 {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 25px;
+  color: rgb(176, 225, 247);
+  text-shadow: 10px,10px,10px,10px, rgba(0, 0, 0, 0.723);
+  
+}
+
+h1 p {
+  font-display: block;
+}
+
 #start-page,
 #lose-page {
   height: 600px;
