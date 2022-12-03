@@ -68,7 +68,6 @@ class Game{
           break;
           case 'Space':     //>>>>>>>>added , remobable.
             this.ninja.shoot();
-            console.log(this.droplets);
         default:
           break;
 
@@ -81,12 +80,12 @@ class Game{
     });
   }
 
-  _checkCollisions() {
+  _checkCollisions() { //habria que hacer un forEach dentro de un forEach, de momento un for each para restar vida cuando droplet toca a ninja.
     this.droplets.forEach((droplet) => {
       if ( (
         this.ninja.x >= droplet.x && this.ninja.x <= droplet.x + droplet.width || // si cabeza toca.x toca con pies.ycabeza parte izq.x toca con pies.y ancho de pies...
           this.ninja.x + this.ninja.width >= droplet.x && this.ninja.x + this.ninja.width <= droplet.x + droplet.width ||//asi por todos los lados izq,der,arr,aba.
-          droplet.x >= this.ninja.x && droplet.x <= this.ninja.x + this.ninja.width // 
+          droplet.x >= this.ninja.x && droplet.x <= this.ninja.x + this.ninja.width 
           )
           &&
           (
@@ -96,7 +95,7 @@ class Game{
           )
           ) {
           
-
+console.log('colision!');
        if (droplet.role === 'dragon') { ///start roles 
         this.points++;
       } else if (droplet.role === 'droplet') {
@@ -137,10 +136,10 @@ _gameOver() {
     this._drawDroplets();
     // this._createDroplets();
     // this._assignControls();
-    // this._checkCollisions();
+    this._checkCollisions();
     // this._fallDown();
     this._writeScore();
-    // this.gameOver();//?/??
+    this.gameOver();//?/??
     window.requestAnimationFrame(()=> this._update());
    
     
