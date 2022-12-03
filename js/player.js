@@ -43,9 +43,15 @@ class Player { //separate player class from Boss/Enemy class in a diferent file?
         }
 
         shoot() {
-          const newKunai = new Kunai(this.x + this.width/2 , this.y);
+          const newKunai = new Kunai(this.x + this.width/2 , this.y); // no esta pintando el kunaielem
           this.kunaiArray.push(newKunai);
           newKunai._moveUpKunai();
+        
+
+
+//           let index = this.kunaiArray.indexOf(kunaiArray);   ======>>>>.para borrar los kunais cuando salgas
+// //     this.kunaiArray.splice(index, 1);
+    
         }
 
      

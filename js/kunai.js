@@ -1,10 +1,10 @@
 class Kunai { //faltara definir funcio per la trajectoria de la bala + new Kunai{}
     constructor (x , y) {
-        this.image = 'kunai';
+        this.image = kunai;
         this.x = x;
         this.y = y;
         this.width = 20;
-        this.height = 20;
+        this.height = 50;
         // this.kunaiArray = []; // this.speed???? 
         this.shootInterval = undefined;
         //this.generateInterval= undefined?
@@ -14,10 +14,10 @@ class Kunai { //faltara definir funcio per la trajectoria de la bala + new Kunai
 _moveUpKunai() {
     this.shootInterval = setInterval(()=> {
         this.y = this.y - 10;
-        if(this.y < -100 ){
+        if(this.y < -100  ){
             clearInterval(this.shootInterval);//???fall interval is not defined? 
         }
-    }, 100)
+    }, 20)
     }
 }
 // shoot() {

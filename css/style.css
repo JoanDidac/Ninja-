@@ -21,9 +21,9 @@
 
 h1 {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 25px;
-  color: rgb(176, 225, 247);
-  text-shadow: 10px,10px,10px,10px, rgba(0, 0, 0, 0.723);
+  font-size: 45px;
+  color: rgb(124, 168, 188);
+  text-shadow: 10px 10px 10px rgb(173, 248, 252);
   
 }
 

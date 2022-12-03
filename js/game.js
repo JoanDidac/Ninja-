@@ -14,10 +14,11 @@ class Game{
 
   _drawKunai() {
     this.ninja.kunaiArray.forEach((elem) => {
-      this.ctx.drawImage(elem.image, elem.x, elem.y, elem.width, elem.height); //el que deberia pintar lo escoge donde? segun el role pero desde aqui puede acceder?
+      this.ctx.drawImage(elem.image, elem.x, elem.y, elem.width, elem.height); 
+      // console.log('drawing kunai'); //el que deberia pintar lo escoge donde? segun el role pero desde aqui puede acceder?
     })
   }
-  
+
 
   _createDroplets() {
     this.x =  Math.floor(Math.random() * 950);
@@ -55,7 +56,6 @@ class Game{
       switch (event.code) {
         case 'ArrowLeft':
           this.ninja.moveLeft();
-          console.log(this.ninja.x)
           break;
         case 'ArrowRight':
           this.ninja.moveRight();
@@ -132,6 +132,7 @@ _gameOver() {
   _update() {
     this._clean();
     this._drawNinja();
+    this._drawKunai();
     this._drawDroplets();
     // this._createDroplets();
     // this._assignControls();

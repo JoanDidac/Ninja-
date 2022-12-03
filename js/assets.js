@@ -5,7 +5,7 @@ const ninja = new Image();
 //Bullets/Shoot/Kunai
 
 const kunai = new Image(); // change to assets.js instead of floating images
-kunai.src = '/images.js/weapons/Kunai image 1.png';
+kunai.src = '/images.js/weapons/Kunai image Upstraight(1).png';
 
 //Food/live booster dragon
 
