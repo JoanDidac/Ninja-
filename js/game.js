@@ -103,7 +103,7 @@ console.log('colision!');
         //(Kunai contra droplet, Kunai contra Boss, droplet contra Ninja y Boss contra Ninja. )
     }
       if(this.points <= 0 ) {
-        this.gameOver();
+        this._gameOver();
       }
       let index = this.droplets.indexOf(droplet);
       this.droplets.splice(index, 1);//what is this doing? 
@@ -139,7 +139,6 @@ _gameOver() {
     this._checkCollisions();
     // this._fallDown();
     this._writeScore();
-    this.gameOver();//?/??
     window.requestAnimationFrame(()=> this._update());
    
     
