@@ -5,6 +5,9 @@ class Game{
     this.points = 10;// should be 0 at start
     this.droplets = [];//como limitar el numero total de elementos dentro del array? arr.length = 20 clearinterval generate interval?
     this.generateInterval = undefined;
+    this.kunaiArray = [];
+    
+  
 
   }
   _drawNinja() {
@@ -59,15 +62,18 @@ class Game{
           break;
         case 'ArrowRight':
           this.ninja.moveRight();
-          break;
-          case 'ArrowUp':
-          this.ninja.moveUp();//esto acabara fuera
-          break;
-          case 'ArrowDown'://esto tambien
-          this.ninja.moveDown();
+          // break;
+          // case 'ArrowUp':
+          // this.ninja.moveUp();//esto acabara fuera
+          // break;
+          // case 'ArrowDown'://esto tambien
+          // this.ninja.moveDown();
           break;
           case 'Space':     //>>>>>>>>added , remobable.
             this.ninja.shoot();
+          break;
+          case 'ArrowDown':  
+          this.ninja.power(); 
         default:
           break;
 
@@ -80,11 +86,11 @@ class Game{
     });
   }
 
-  _checkCollisions() { //habria que hacer un forEach dentro de un forEach, de momento un for each para restar vida cuando droplet toca a ninja.
+  _checkCollisions() { 
     this.droplets.forEach((droplet) => {
       if ( (
-        this.ninja.x >= droplet.x && this.ninja.x <= droplet.x + droplet.width || // si cabeza toca.x toca con pies.ycabeza parte izq.x toca con pies.y ancho de pies...
-          this.ninja.x + this.ninja.width >= droplet.x && this.ninja.x + this.ninja.width <= droplet.x + droplet.width ||//asi por todos los lados izq,der,arr,aba.
+        this.ninja.x >= droplet.x && this.ninja.x <= droplet.x + droplet.width || 
+          this.ninja.x + this.ninja.width >= droplet.x && this.ninja.x + this.ninja.width <= droplet.x + droplet.width ||
           droplet.x >= this.ninja.x && droplet.x <= this.ninja.x + this.ninja.width 
           )
           &&
@@ -95,7 +101,7 @@ class Game{
           )
           ) {
           
-console.log('colision!');
+// console.log('colision!');
        if (droplet.role === 'dragon') { ///start roles 
         this.points++;
       } else if (droplet.role === 'droplet') {
@@ -109,8 +115,48 @@ console.log('colision!');
       this.droplets.splice(index, 1);//what is this doing? 
     }
     })
-  
+
   } 
+
+  _checkCollisionKunaiDroplet() {
+    this.ninja.kunaiArray.forEach((elem) => {
+      if ( this.kunai.y <= this.droplet.y + this.droplet.height) {
+        // let indexWeapon = this.droplets.indexOf(droplet);
+        // this.droplets.splice(index, 1);
+      console.log( 'bingo!');
+    }
+  })
+}
+  
+//       if ( (
+//         this.newkunai.x >= droplet.x && this.newkunai.x <= droplet.x + droplet.width || 
+//           this.newkunai.x + this.newkunai.width >= droplet.x && this.newkunai.x + this.newkunai.width <= droplet.x + droplet.width ||
+//           droplet.x >= this.newkunai.x && droplet.x <= this.newkunai.x + this.newkunai.width 
+//           )
+//           &&
+//           (
+//             this.newkunai.y >= droplet.y && this.newkunai.y <= droplet.y + droplet.height ||
+//             this.newkunai.y + this.newkunai.height >= droplet.y && this.newkunai.y + this.newkunai.height <= droplet.y + droplet.height ||
+//             droplet.y >= this.newkunai.y && droplet.y <= this.newkunai.y + this.newkunai.height 
+//           )
+//           ) {
+          
+// console.log('en el blanco!!!');
+//        if (droplet.role === 'dragon') { ///start roles 
+//         this.points++;
+//       } else if (droplet.role === 'droplet') {
+//         let index = this.droplets.indexOf(droplet);
+//         this.droplets.splice(index, 1);
+//     }
+    
+//     }
+    
+
+//   } 
+
+// power() {
+//   this.ninja.x = [Math.floor(Math.random() * 950)];
+// }
 
   _writeScore() {
     this.ctx.fillStyle = "lightyellow";
@@ -138,7 +184,9 @@ _gameOver() {
     // this._createDroplets();
     // this._assignControls();
     this._checkCollisions();
+    // this._checkCollisionKunaiDroplet();
     // this._fallDown();
+    // this.power();
     this._writeScore();
     window.requestAnimationFrame(()=> this._update());
    

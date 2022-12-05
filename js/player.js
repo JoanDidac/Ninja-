@@ -46,56 +46,19 @@ class Player { //separate player class from Boss/Enemy class in a diferent file?
           const newKunai = new Kunai(this.x + this.width/2.5 , this.y - 30); 
           this.kunaiArray.push(newKunai);
           newKunai._moveUpKunai();
-    
+    //Cooldown para eviar que dispare a muerte? 
         }
 
-     
-      
-      
-
-      
-
-
-
-
-
-
-      //   if ( document.addEventListener('keydown', (event) => {       
-      //       switch (event.code) {
-      //         case '"Space"':
-      //           shoot();
-      //           console.log("shoot!");
-      //       }
-      //     })
-      //   )
+        power() {console.log('POWER!!');
+          // let x = this.x;
+        this.x = [Math.floor(Math.random() * 900)];
+//after using power if first key pressed is right ninja goes straight out of the canvas, not with left.
+        
+        }
       
         
-          //fireKunai(), createKunai(), and moveKunai(). fireKunai() calls createKunai() which creates the Kunai Image 
-        //the image should be save into a variable. fireKunai then calls moveKunai() with an argument of the newly created kunai, 
-        //moveKunai then moves the kunai until it exits the canvas and gets removed by a clear interval??? 
-
-
-
-     
         
-    // 
-
-    // moveDiagonal() {} ???? <<<< Backlog
+  
 
 
-    //   shoot() { //should be a class instead of a method? / should shoot kunai from player's position when button is pressed
-    
-    //   }
-    //   _liveBooster() {//should be a method to add the live to the counter when Dragon/LiveBooster collides with Player???
-
-    //   }
-    //   receiveDamage( ){//Should be a method to substract 1 live from counter when droplet or katana collide with Player?
-
-    //   }
-
-
-
-// class Boss extends Player {}
-    //      constructor(name) {
-    //         this.shoot = 50;
-      }
+      }//closing 
