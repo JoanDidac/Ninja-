@@ -2,8 +2,8 @@ class Droplet {//Shall we say Army instead???
     constructor() {
         this.x = Math.floor(Math.random() * 950);
         this.y =  Math.floor(Math.random() * -100); 
-        this.width = 100;
-        this.height = 100;
+        this.width = 100;// original droplet 100
+        this.height = 100;//original droplet 100
         this.role = undefined; 
         this.Image = undefined;
         this.fallInterval = undefined;
@@ -31,7 +31,7 @@ class Droplet {//Shall we say Army instead???
 
     _assignImage() { // molaria poder tener un array con tres imagenes de malos para hacer un random y que salieran aleatoriamente.
         if (this.role === 'droplet') { 
-            this.image = droplets;
+            this.image = droplets;//math.floor.math.random * dropletsArray.length???
         } else { 
             this.image = dragon ; // No estoy seguro de que esto sirva para randomear la aparicion del dragon y su imagen
         }

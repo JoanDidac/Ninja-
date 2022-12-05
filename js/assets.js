@@ -1,6 +1,10 @@
 // Player
 const ninja = new Image();
-    ninja.src = '/images.js/player/Ninja image 4.png';
+    ninja.src = '/images.js/Ninja/Ninja image 4.png';
+
+// Dropplets/Enemies 
+const droplets = new Image();
+droplets.src = '/images.js/droplet/Samurai droplet 13.png';    
 
 //Bullets/Shoot/Kunai
 
@@ -17,9 +21,7 @@ dragon.src = '/images.js/dragon/Dragon image 3 .png';
 const katana = new Image();
 katana.src = '/images.js/weapons/Katana image2.png';
 
-// Dropplets/Enemies 
-const droplets = new Image();
-droplets.src = '/images.js/droplet/Dropplet image1.png';
+
 
 // const dragonImage = [dragon];
 // const weapons = [kunai,katana]; // ???why?

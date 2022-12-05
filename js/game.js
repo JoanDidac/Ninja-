@@ -102,8 +102,8 @@ console.log('colision!');
         this.points--;
         //(Kunai contra droplet, Kunai contra Boss, droplet contra Ninja y Boss contra Ninja. )
     }
-      if(this.points <= 0 ) {
-        this._gameOver();
+      if(this.points === 0 ) {
+        this._gameOver(); //not working, counter can go below 0, game over screen not showing up
       }
       let index = this.droplets.indexOf(droplet);
       this.droplets.splice(index, 1);//what is this doing? 
