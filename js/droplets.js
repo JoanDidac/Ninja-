@@ -34,8 +34,8 @@ class Droplet {//Shall we say Army instead???
             this.image = droplets;//math.floor.math.random * dropletsArray.length???
         } else { 
             this.image = dragon; // No estoy seguro de que esto sirva para randomear la aparicion del dragon y su imagen
-            this.width = 90;
-            this.height = 60;//para cambiar tamaño de droplet if necessary 75
+            this.width = 100;
+            this.height = 65;//para cambiar tamaño de droplet if necessary 75
         }
         
     }
