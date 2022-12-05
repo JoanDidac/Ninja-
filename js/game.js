@@ -61,9 +61,9 @@ class Game{
           this.ninja.moveRight();
           break;
           case 'ArrowUp':
-          this.ninja.moveUp();
+          this.ninja.moveUp();//esto acabara fuera
           break;
-          case 'ArrowDown':
+          case 'ArrowDown'://esto tambien
           this.ninja.moveDown();
           break;
           case 'Space':     //>>>>>>>>added , remobable.
@@ -110,12 +110,13 @@ console.log('colision!');
     }
     })
   
-  }
+  } 
 
   _writeScore() {
-    this.ctx.fillStyle = "black";
-    this.ctx.font = "25px Lucida";
-    this.ctx.fillText(`Points: ${this.points}`, 850,550);
+    this.ctx.fillStyle = "lightyellow";
+    this.ctx.font = "20px fantasy";
+    this.ctx.fillText(` 𝙿𝚘𝚒𝚗𝚝𝚜: ${this.points}`, 850,550);
+    
   }
 
   _clean() {
@@ -144,9 +145,9 @@ _gameOver() {
     
   }
 
-  start() { //startBtn maybe? ... cannot be called startBtn I think... cause method and ID have the same name...
+  start() { 
     const startPage = document.getElementById('start');
-    startPage.style = "display: none";//none?
+    startPage.style = "display: none";
     this._update();
     this._createDroplets();
     this._assignControls();

@@ -4,13 +4,7 @@
 }
 
 /* Basic styles, change according to your style */
-/* #canvas {
-  background-image: url('/images.js/Backgrounds/comic\ background\ 4.jpeg');
-  background-size: 1000px ,600px;
-  background-repeat: no-repeat;
-  background-position: 90%;
-  
-} */
+
 #start-page {
   background-image: url(/images.js/Backgrounds/Neon\ ninja\ city\ image.jpg);
   background-size: cover;
@@ -22,9 +16,9 @@
 #start-page h1 {
   
   font-size: 33px;
-  color: rgb(72, 178, 195);
+  color: rgb(0, 211, 244);
   text-shadow: 3px 1px 4px rgb(0, 0, 0);
-  filter:drop-shadow(0 0 15px #3eafdb) drop-shadow(0 0 50px #db3eb1) contrast(1) brightness(1.9);
+  filter:drop-shadow(0 0 15px #41add7) drop-shadow(0 0 50px #db3eb1) contrast(0.7) brightness(1.9);
   
   
 }
@@ -78,15 +72,14 @@
 }
 
 #lose-page {
-  background-image: url('/images.js/Seppuku\ Game\ Over.jpeg'), url('/images.js/Texto\ Kanji.png');
-  background-color: black;
+  background-image: url('/images.js/Seppuku\ Game\ Over.jpeg');
   background-size: 500px;
   background-position: -54px -10px;
 
 }
 
 #lose-page h1 {
-  position: static;
+/* position: static; */
 color: black;
 text-shadow: 0px 0px 17px black;;
 font-size: 70px;
@@ -94,7 +87,7 @@ filter: drop-shadow(0 0 15px darkred) drop-shadow(0 0 50px #ff0000) contrast(1) 
 }
 
 #lose-page p {
-  position: static;
+  /* position: static; */
   color: rgba(0, 0, 0, 0.887);
   font-family: fantasy;
   text-shadow: 0px 0px 17px darkred;;
@@ -106,11 +99,18 @@ filter: drop-shadow(0 0 15px darkred) drop-shadow(0 0 50px #ff0000) contrast(1) 
 
   #ronin {
     background-image:url(/images.js/Texto\ Kanji.png);
-    background-clip: content-box;
-    background: transparent;
+    /* background-clip: content-box; */
+    /* background: transparent; */
     width: 8%;
     filter: drop-shadow(0 0 15px rgb(93, 0, 0)) drop-shadow(0 0 50px #ff0202) contrast(1) brightness(1.9);
   
+  }
+
+  #canvas {
+    background-image: url('/images.js/\ Neo\ Geo\ Dojo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
   }
    
    /* align-items: center;
