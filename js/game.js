@@ -53,7 +53,7 @@ class Game{
 }, 10)
 }
 
-  _assignControls() {
+  _assignControls() { //añadir default event move pantalla izquierda y derecha 
     // Controles del teclado
     document.addEventListener('keydown', (event) => {
       switch (event.code) {

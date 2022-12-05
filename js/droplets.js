@@ -16,7 +16,7 @@ class Droplet {//Shall we say Army instead???
         if(this.y > 600 ){
             clearInterval(this.fallInterval);//???fall interval is not defined? 
          }
-         this.y = this.y + 1;
+         this.y = this.y + 1; //originally + 1
         
     }, 15)
 }
@@ -33,8 +33,11 @@ class Droplet {//Shall we say Army instead???
         if (this.role === 'droplet') { 
             this.image = droplets;//math.floor.math.random * dropletsArray.length???
         } else { 
-            this.image = dragon ; // No estoy seguro de que esto sirva para randomear la aparicion del dragon y su imagen
+            this.image = dragon; // No estoy seguro de que esto sirva para randomear la aparicion del dragon y su imagen
+            this.width = 90;
+            this.height = 60;//para cambiar tamaño de droplet if necessary 75
         }
+        
     }
 
 }

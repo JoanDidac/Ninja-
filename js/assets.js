@@ -23,7 +23,6 @@ katana.src = '/images.js/weapons/Katana image2.png';
 
 
 
-// const dragonImage = [dragon];
-// const weapons = [kunai,katana]; // ???why?
+// const dropletsArray = 
 
 // Sounds go here  ===========================>
