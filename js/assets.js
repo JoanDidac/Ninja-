@@ -23,6 +23,6 @@ katana.src = '/images.js/weapons/Katana image2.png';
 
 
 
-// const dropletsArray = 
+
 
 // Sounds go here  ===========================>

@@ -6,11 +6,6 @@ class Player { //separate player class from Boss/Enemy class in a diferent file?
         this.width = width;
         this.height = height;
         this.kunaiArray = [];
-        // this.kunai.image = undefined;
-        //this.position = to store the current position so we can shoot from there.
-        // this.ctx = context;
-        // this.moveUp = ;
-        // this.movedown = ;
         
       }
       moveRight() {
@@ -37,7 +32,7 @@ class Player { //separate player class from Boss/Enemy class in a diferent file?
     
           moveDown() {
             this.y = this.y + 10;
-            if(this.y > 600) { // 600 para que no se salga del canvas
+            if(this.y > 600) { 
                 this.y = 0;
           }
         }

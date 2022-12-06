@@ -2,7 +2,7 @@ class Game{
   constructor(ctx) {
     this.ctx = ctx;
     this.ninja = new Player(450,500,90,90);
-    this.points = 10;// should be 0 at start
+    this.points = 10;
     this.droplets = [];//como limitar el numero total de elementos dentro del array? arr.length = 20 clearinterval generate interval?
     this.generateInterval = undefined;
     this.kunaiArray = [];
@@ -32,7 +32,7 @@ class Game{
       newDroplet._assignImage();
       newDroplet._fallDown();
     
-      this.droplets.push(newDroplet);//1 por segundo??? too quick? 
+      this.droplets.push(newDroplet);
     },1000)
   }
   
@@ -49,13 +49,13 @@ class Game{
     this.fallInterval = setInterval(()=> {
     this.y = this.y + 1;
     if(this.y > 600 ){
-        clearInterval(this.fallInterval);//???fall interval is not defined? 
+        clearInterval(this.fallInterval); 
     }
     
 }, 10)
 }
 
-  _assignControls() { //añadir default event move pantalla izquierda y derecha 
+  _assignControls() { //añadir default event move pantalla izquierda y derecha space up and down para evitar que se mueva
     // Controles del teclado
     document.addEventListener('keydown', (event) => {
       switch (event.code) {
@@ -71,7 +71,7 @@ class Game{
           // case 'ArrowDown'://esto tambien
           // this.ninja.moveDown();
           break;
-          case 'Space':     //>>>>>>>>added , remobable.
+          case 'Space':     
             this.ninja.shoot();
           break;
           case 'ArrowDown':  
@@ -79,11 +79,6 @@ class Game{
         default:
           break;
 
-
-        // document.addEventListener('keydown', (event) => {        ========>>>>>>> Space bar = Shoot()
-        //   switch (event.code) {
-        //     case '"Space"':
-        //       shoot();
       }
     });
   }
@@ -104,17 +99,17 @@ class Game{
           ) {
           
 // console.log('colision!');
-       if (droplet.role === 'dragon') { ///start roles 
+       if (droplet.role === 'dragon') { 
         this.points++;
       } else if (droplet.role === 'droplet') {
         this.points--;
-        //(Kunai contra droplet, Kunai contra Boss, droplet contra Ninja y Boss contra Ninja. )
+        
     }
       if(this.points === 0 ) {
-        this._gameOver(); //not working, counter can go below 0, game over screen not showing up
+        this._gameOver(); 
       }
       let index = this.droplets.indexOf(droplet);
-      this.droplets.splice(index, 1);//what is this doing? 
+      this.droplets.splice(index, 1); 
     }
     })
 
@@ -122,9 +117,9 @@ class Game{
 
   _checkCollisionKunaiDroplet() {
     this.ninja.kunaiArray.forEach((elem) => {
-      if ( this.kunai.y <= this.droplet.y + this.droplet.height) {
-        // let indexWeapon = this.droplets.indexOf(droplet);
-        // this.droplets.splice(index, 1);
+      if ( this.elem.y <= this.droplet.y + this.droplet.height) {
+        let indexWeapon = this.droplets.indexOf(droplet);
+        this.droplets.splice(index, 1);
       console.log( 'bingo!');
     }
   })
@@ -156,10 +151,6 @@ class Game{
 
 //   } 
 
-// power() {
-//   this.ninja.x = [Math.floor(Math.random() * 950)];
-// }
-
   _writeScore() {
     this.ctx.fillStyle = "lightyellow";
     this.ctx.font = "20px fantasy";
@@ -184,16 +175,10 @@ _gameOver() {
     this._drawNinja();
     this._drawKunai();
     this._drawDroplets();
-    // this._createDroplets();
-    // this._assignControls();
     this._checkCollisions();
-    // this._checkCollisionKunaiDroplet();
-    // this._fallDown();
-    // this.power();
     this._writeScore();
     window.requestAnimationFrame(()=> this._update());
-   
-    
+  
   }
 
   start() { 
@@ -202,9 +187,6 @@ _gameOver() {
     this._update();
     this._createDroplets();
     this._assignControls();
-    
-    
-  
     
   }
  } 
