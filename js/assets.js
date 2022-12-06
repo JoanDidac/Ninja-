@@ -1,6 +1,6 @@
 // Player
 const ninja = new Image();
-    ninja.src = '/images.js/Ninja/Ninja image 4.png';
+    ninja.src = '/images.js/Ninja/Ninja image 4.png';//falta hacer el crop de la imagen bien
 
 // Dropplets/Enemies 
 const droplets = new Image();

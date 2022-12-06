@@ -38,7 +38,9 @@ class Game{
   
   _drawDroplets() {
     this.droplets.forEach((droplet) => {
-      this.ctx.drawImage(droplet.image, droplet.x, droplet.y, droplet.width, droplet.height); //el que deberia pintar lo escoge donde? segun el role pero desde aqui puede acceder?
+      this.ctx.drawImage(droplet.image, droplet.x, droplet.y, droplet.width, droplet.height); 
+      // this.ctx.drawImage(droplet.image, droplet.x, droplet.y + 10, droplet.width, droplet.height); //to create falling motino effect
+      // this.ctx.globalAlpha=0.8, this.ctx.drawImage(droplet.image, droplet.x, droplet.y + 20, droplet.width, droplet.height);
     })
   }
 
@@ -173,7 +175,8 @@ _gameOver() {
   clearInterval(this.generateInterval);
   const losePage = document.getElementById('lose-page');
   losePage.style = "display: flex";
-  const canvas = "display: none";
+  const canvas = document.getElementById('canvas');
+  canvas.style = "display: none";
 }
 
   _update() {

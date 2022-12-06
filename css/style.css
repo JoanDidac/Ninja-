@@ -113,10 +113,6 @@ filter: drop-shadow(0 0 15px darkred) drop-shadow(0 0 50px #ff0000) contrast(1) 
     background-size: cover;
     background-position: center;
   }
-   
-   /* align-items: center;
-   
-  }
 
 canvas {
   border: 1px solid black;
