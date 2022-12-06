@@ -17,7 +17,7 @@
   margin-top: 100px;
   font-size: 33px;
   color: rgb(0, 211, 244);
-  text-shadow: 3px 1px 4px rgb(0, 0, 0);
+  text-shadow: 0px 10px 4px rgba(255, 1, 1, 0.811);
   filter:drop-shadow(0 0 15px #41add7) drop-shadow(0 0 50px #db3eb1) contrast(0.7) brightness(1.9);
   
   
@@ -27,7 +27,7 @@
   font-size: 16px;
   font-family: fantasy;
   text-align: center;
-  color: rgba(238, 212, 238, 0.84);
+  color: rgba(238, 212, 238, 0.365);
   text-shadow:0px 0px 3px rgb(0, 0, 0) ;
   margin-left: 180px;
   margin-right: 180px;

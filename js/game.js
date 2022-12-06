@@ -6,9 +6,26 @@ class Game{
     this.droplets = [];//como limitar el numero total de elementos dentro del array? arr.length = 20 clearinterval generate interval?
     this.generateInterval = undefined;
     this.kunaiArray = [];
+
+    this.timer = 30;
+    this.generateTimer = undefined;
     
   
 
+  }
+
+  _timer() {
+    this.generateTimer = setInterval(()=> {
+      this.timer--;
+      if (this.timer <= 0) //&& this.points > 0) {console.log('you Win!!');}
+      clearInterval(this.generateTimer);
+  },1000)
+}
+
+  _drawTimer() {
+    this.ctx.fillStyle = "lightyellow";
+    this.ctx.font = "20px fantasy";
+    this.ctx.fillText(` 𝚃𝚒𝚖𝚎: ${this.timer}`, 835,570);
   }
   _drawNinja() {
     this.ctx.drawImage(this.ninja.image,this.ninja.x,this.ninja.y,this.ninja.width,this.ninja.height);
@@ -58,12 +75,15 @@ class Game{
   _assignControls() { //añadir default event move pantalla izquierda y derecha space up and down para evitar que se mueva
     // Controles del teclado
     document.addEventListener('keydown', (event) => {
+      event.preventDefault(); //maybe should go under each case as event.preventDefault(); ???
       switch (event.code) {
         case 'ArrowLeft':
           this.ninja.moveLeft();
+          
           break;
         case 'ArrowRight':
           this.ninja.moveRight();
+          
           // break;
           // case 'ArrowUp':
           // this.ninja.moveUp();//esto acabara fuera
@@ -73,10 +93,12 @@ class Game{
           break;
           case 'Space':     
             this.ninja.shoot();
+            
           break;
           case 'ArrowDown':  
           this.ninja.power(); 
-        default:
+          
+        default: 
           break;
 
       }
@@ -154,7 +176,7 @@ class Game{
   _writeScore() {
     this.ctx.fillStyle = "lightyellow";
     this.ctx.font = "20px fantasy";
-    this.ctx.fillText(` 𝙿𝚘𝚒𝚗𝚝𝚜: ${this.points}`, 850,550);
+    this.ctx.fillText(` 𝙿𝚘𝚒𝚗𝚝𝚜: ${this.points}`, 835,543);
     
   }
 
@@ -172,6 +194,7 @@ _gameOver() {
 
   _update() {
     this._clean();
+    this._drawTimer();
     this._drawNinja();
     this._drawKunai();
     this._drawDroplets();
@@ -187,6 +210,8 @@ _gameOver() {
     this._update();
     this._createDroplets();
     this._assignControls();
+    this._drawTimer();
+    this._timer();
     
   }
  } 

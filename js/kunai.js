@@ -3,8 +3,8 @@ class Kunai { //faltara definir funcio per la trajectoria de la bala + new Kunai
         this.image = kunai;
         this.x = x;
         this.y = y;
-        this.width = 30;
-        this.height = 55;
+        this.width = 23;//20
+        this.height = 53;//50
         // this.kunaiArray = []; // this.speed???? 
         this.shootInterval = undefined;
         //this.generateInterval= undefined?
