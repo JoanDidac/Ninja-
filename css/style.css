@@ -15,6 +15,8 @@ body {
   justify-content: center;
   align-items: center;
   display: block;
+  box-shadow: 0px 0px 10px rgb(0, 0, 0);
+  filter: drop-shadow(0 0 15px rgb(4, 209, 255)) drop-shadow(0 0 50px #02adb0)
 }
 
 #start-page h1 {
@@ -31,7 +33,7 @@ body {
   font-size: 16px;
   font-family: fantasy;
   text-align: center;
-  color: rgba(238, 212, 238, 0.365);
+  color: rgba(253, 253, 253, 0.524);
   text-shadow:0px 0px 3px rgb(0, 0, 0) ;
   margin-left: 180px;
   margin-right: 180px;
@@ -63,10 +65,11 @@ body {
 
 
 #start-page,
-#lose-page { /* NO SE TOCAAAA!*/
+#lose-page,
+#win-page { /* NO SE TOCAAAA!*/
   height: 600px;
   width: 1000px;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -80,6 +83,7 @@ body {
   background-image: url('/images.js/Seppuku\ Game\ Over.jpeg');
   background-size: 500px;
   background-position: -54px -10px;
+  filter: drop-shadow(0 0 15px rgb(0, 0, 0)) drop-shadow(0 0 50px #050000);
 
 }
 
@@ -101,10 +105,33 @@ filter: drop-shadow(0 0 15px darkred) drop-shadow(0 0 50px #ff0000) contrast(1) 
   margin-bottom: -90px;
   filter: drop-shadow(0 0 15px rgba(118, 1, 1, 0.913)) drop-shadow(0 0 50px #ff0000) contrast(1) brightness(1.9);
   }
-#win-page {
+
+  #win-page {
+    background-image: url(/images.js/Ninja\ Win-page\ 2\ neon.jpg);
+    height: 600px;
+    width: 1000px;
+    background-size: 99%;
+    box-shadow: 0px 0px 40px rgb(0, 0, 0);
+    filter: drop-shadow(0 0 15px rgb(54, 0, 93)) drop-shadow(0 0 50px #b94ed2) contrast(1) brightness(1.3);
+   
+  }
+
+  #win-page h1 {
+    color: rgb(185, 140, 253);
+    font-size: 60px;
+    text-shadow: 0px 10px 4px rgba(213, 1, 255, 0.816);
+    filter:drop-shadow(0 0 15px #41add7) drop-shadow(0 0 50px #9c3edb) contrast(0.7) brightness(1.9);
+    margin-bottom: 150px;
+  }
+
+#ninjaWin{
+  background-image: url(/images.js/Ninja\ Win-page\ 2\ neon.jpg);
   display: none;
-  
+  height: 600px;
+  width: 1000px;
 }
+
+
   #ronin {
     background-image:url(/images.js/Texto\ Kanji.png);
     /* background-clip: content-box; */

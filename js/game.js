@@ -7,7 +7,7 @@ class Game{
     this.generateInterval = undefined;
     this.kunaiArray = [];
 
-    this.timer = 30;
+    this.timer = 10;
     this.generateTimer = undefined;
     
   
@@ -17,7 +17,8 @@ class Game{
   _timer() {
     this.generateTimer = setInterval(()=> {
       this.timer--;
-      if(this.timer == 0) {this._gameWon()}
+      if (this.timer === 0 && this.points > 0) {clearInterval(this.generateTimer); this._gameWon()}
+
   },1000)
 }
 
@@ -209,6 +210,8 @@ _gameWon(){
   const canvas = document.getElementById('canvas');
   canvas.style = "display: none";
   console.log('you win!!!');
+  const losePage = document.getElementById('lose-page');
+  losePage.style = "display: none";
 } //llamar
 
 
@@ -218,6 +221,8 @@ _gameOver() {
   losePage.style = "display: flex";
   const canvas = document.getElementById('canvas');
   canvas.style = "display: none";
+  const winPage = document.getElementById('win-page');
+  winPage.style = "display: none";
 }
 
   _update() {
