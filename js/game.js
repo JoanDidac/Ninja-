@@ -10,7 +10,20 @@ class Game{
     this.generateTimer = undefined;
     this.role = undefined;
     this.kills = 0;
-    
+
+    this.loseSound = youLose;
+    this.bso = soundtrack;
+    this.win = youWin;
+    this.risa = risa;
+    this.speech = startVoice;
+    this.fx = dropletKunai;
+    this.damage = receivedDamage;
+    this.throw1 = throwKunai1;
+    this.throw2 = throwKunai2;
+    this.deadSpeech = gameOver;
+    this.deadDroplet = dropletKunai2;
+    this.dragonSound = dragonFx;
+    this.smokeBomb = teleport;
   
 
   }
@@ -58,7 +71,7 @@ class Game{
       newDroplet._fallDown();
     
       this.droplets.push(newDroplet);
-    },500)
+    },1000)
   }
   
   _drawDroplets() {
@@ -87,7 +100,7 @@ class Game{
           this.ninja.moveLeft();
           
           break;
-        case 'ArrowRight':
+          case 'ArrowRight':
           this.ninja.moveRight();
 
           break;
@@ -97,6 +110,7 @@ class Game{
           break;
           case 'ArrowDown':  
           this.ninja.power(); 
+          this.smokeBomb.play();
           
         default: 
           break;
@@ -124,6 +138,8 @@ class Game{
            this.lives++;
          } else if (droplet.role === 'droplet') {
            this.lives--;
+           this.fx.play();
+           this.damage.play();
         
       }
       if(this.lives === 0 ) {
@@ -142,9 +158,11 @@ class Game{
           if ( kunai.x < droplet.x + droplet.width && kunai.x + kunai.width > droplet.x 
             && kunai.y < droplet.y + droplet.height && kunai.y + kunai.height > droplet.y) 
           { if (droplet.role === 'dragon') { 
-            this.lives++; //this.bomb.play(); 
+            this.lives++;
+            this.dragonSound.play();
           } else if (droplet.role === 'droplet') {
-            this.kills++; 
+            this.kills++;
+            this.deadDroplet.play();
           } 
            
             let indexDroplet = this.droplets.indexOf(droplet);
@@ -177,6 +195,10 @@ _gameWon(){
   canvas.style = "display: none";
   const losePage = document.getElementById('lose-page');
   losePage.style = "display: none";
+  this.win.play();
+  setTimeout(()=>{this.risa.play()},2000);
+  setTimeout(()=> {this.dragonSound.play()},5500); 
+
 } //llamar
 
 
@@ -189,6 +211,9 @@ _gameOver() {
   canvas.style = "display: none";
   const winPage = document.getElementById('win-page');
   winPage.style = "display: none";
+  this.deadSpeech.play();
+  setTimeout(()=> {this.loseSound.play() },5000);
+  
 }
 
   _update() {
@@ -209,6 +234,8 @@ _gameOver() {
   start() { 
     const startPage = document.getElementById('start');
     startPage.style = "display: none";
+    this.speech.play();
+    setTimeout(()=>{this.bso.play()},1000);
     this._update();
     this._createDroplets();
     this._assignControls();
@@ -216,6 +243,7 @@ _gameOver() {
     this._drawKills();
     this._kills();
     this._timer();
+    
     
   }
  } 
