@@ -26,18 +26,7 @@ class Game{
     this.smokeBomb = teleport;
  
     this.count10 = countDown10;
-    this.count9 = countDown9;
-    this.count8 = countDown8;
-    this.count7 = countDown7;
-    this.count6 = countDown6;
-    this.count5 = countDown5;
-    this.count4 = countDown4;
-    this.count4 = countDown3;
-    this.count3 = countDown3;
-    this.count2 = countDown2;
-    this.count1 = countDown1;
-  
-
+   
   }
 
   _kills() {

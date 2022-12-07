@@ -65,7 +65,7 @@ risa.src = '/Sounds Ninja/Ninja risa.wav';
 
 const dragonFx = new Audio();
 dragonFx.src = '/Sounds Ninja/Dragon sound.wav';
-dragonFx.volume = 0.8;
+dragonFx.volume = 0.5;
 
 const teleport = new Audio();
 teleport.src = '/Sounds Ninja/teleport sound.wav';
