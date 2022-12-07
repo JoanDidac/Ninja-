@@ -2,7 +2,11 @@
   margin: 0;
   padding: 0;
 }
-
+body {
+  background-color: rgba(6, 0, 0, 0.611);
+  background-image: url(/images.js/Texto\ Kanji.png);
+  background-size: 13%;
+}
 /* Basic styles, change according to your style */
 
 #start-page {
@@ -97,7 +101,9 @@ filter: drop-shadow(0 0 15px darkred) drop-shadow(0 0 50px #ff0000) contrast(1) 
   margin-bottom: -90px;
   filter: drop-shadow(0 0 15px rgba(118, 1, 1, 0.913)) drop-shadow(0 0 50px #ff0000) contrast(1) brightness(1.9);
   }
-
+#win-page {
+  background-color: #ff0000;
+}
   #ronin {
     background-image:url(/images.js/Texto\ Kanji.png);
     /* background-clip: content-box; */

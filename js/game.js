@@ -17,7 +17,9 @@ class Game{
   _timer() {
     this.generateTimer = setInterval(()=> {
       this.timer--;
-      if (this.timer <= 0) //&& this.points > 0) {console.log('you Win!!');}
+      if (this.timer === 0 || this.timer <= 0 && this.points >= 1) { //cuando añado el || deja de hacer el countdown.
+        _gameWon();}
+        console.log('you Win!!');
       clearInterval(this.generateTimer);
   },1000)
 }
@@ -138,14 +140,33 @@ class Game{
   } 
 
   _checkCollisionKunaiDroplet() {
-    this.ninja.kunaiArray.forEach((elem) => {
-      if ( this.elem.y <= this.droplet.y + this.droplet.height) {
-        let indexWeapon = this.droplets.indexOf(droplet);
-        this.droplets.splice(index, 1);
-      console.log( 'bingo!');
+      this.droplets.forEach((droplet) => { 
+        this.ninja.kunai.forEach((kunai) => { 
+          if ( kunai.x < droplet.x + droplet.width && kunai.x + kunai.width > droplet.x && kunai.y < droplet.y + droplet.height && kunai.y + kunai.height > droplet.y) 
+          { if (droplet.role === 'dragon') { 
+            this.points++; this.bomb.play(); 
+          } else if (droplet.role === 'droplet') {
+            this.points--;
+          } 
+           
+            let index = this.droplets.indexOf(droplet);
+            this.droplets.splice(index, 1); 
+          } 
+        })
+      })
     }
-  })
-}
+  
+  
+  
+//     this.ninja.kunaiArray.forEach((elem) => {
+//       this.kunai
+//       if ( elem.y <= this.droplet.y + this.droplet.height) {
+//         let indexWeapon = this.droplets.indexOf(droplet);
+//         this.droplets.splice(indexWeapon, 1);
+//       console.log( 'bingo!');
+//     }
+//   })
+// }
   
 //       if ( (
 //         this.newkunai.x >= droplet.x && this.newkunai.x <= droplet.x + droplet.width || 
@@ -183,6 +204,16 @@ class Game{
   _clean() {
      this.ctx.clearRect(0, 0, 1000, 600);
 }
+
+_gameWon(){
+  clearInterval(this.generateInterval);
+  const winPage = document.getElementById('win-page');
+  winPage.style = "display: flex";
+  const canvas = document.getElementById('canvas');
+  canvas.style = "display: none";
+  console.log('you win!!!');
+} //llamar
+
 
 _gameOver() {
   clearInterval(this.generateInterval);
