@@ -102,7 +102,8 @@ filter: drop-shadow(0 0 15px darkred) drop-shadow(0 0 50px #ff0000) contrast(1) 
   filter: drop-shadow(0 0 15px rgba(118, 1, 1, 0.913)) drop-shadow(0 0 50px #ff0000) contrast(1) brightness(1.9);
   }
 #win-page {
-  background-color: #ff0000;
+  display: none;
+  
 }
   #ronin {
     background-image:url(/images.js/Texto\ Kanji.png);

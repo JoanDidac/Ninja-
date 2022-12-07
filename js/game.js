@@ -17,10 +17,7 @@ class Game{
   _timer() {
     this.generateTimer = setInterval(()=> {
       this.timer--;
-      if (this.timer === 0 || this.timer <= 0 && this.points >= 1) { //cuando añado el || deja de hacer el countdown.
-        _gameWon();}
-        console.log('you Win!!');
-      clearInterval(this.generateTimer);
+      if(this.timer == 0) {this._gameWon()}
   },1000)
 }
 
@@ -206,7 +203,7 @@ class Game{
 }
 
 _gameWon(){
-  clearInterval(this.generateInterval);
+  clearInterval(this.generateTimer);
   const winPage = document.getElementById('win-page');
   winPage.style = "display: flex";
   const canvas = document.getElementById('canvas');
