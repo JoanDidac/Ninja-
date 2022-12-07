@@ -6,9 +6,10 @@ class Game{
     this.droplets = [];//como limitar el numero total de elementos dentro del array? arr.length = 20 clearinterval generate interval?
     this.generateInterval = undefined;
     this.kunaiArray = [];
-
-    this.timer = 10;
+    this.timer = 30;
     this.generateTimer = undefined;
+
+    this.role = undefined;
     
   
 
@@ -139,58 +140,24 @@ class Game{
 
   _checkCollisionKunaiDroplet() {
       this.droplets.forEach((droplet) => { 
-        this.ninja.kunai.forEach((kunai) => { 
-          if ( kunai.x < droplet.x + droplet.width && kunai.x + kunai.width > droplet.x && kunai.y < droplet.y + droplet.height && kunai.y + kunai.height > droplet.y) 
+        this.ninja.kunaiArray.forEach((kunai) => { 
+          if ( kunai.x < droplet.x + droplet.width && kunai.x + kunai.width > droplet.x 
+            && kunai.y < droplet.y + droplet.height && kunai.y + kunai.height > droplet.y) 
           { if (droplet.role === 'dragon') { 
-            this.points++; this.bomb.play(); 
-          } else if (droplet.role === 'droplet') {
-            this.points--;
+            this.points++; //this.bomb.play(); 
+          // } else if (droplet.role === 'droplet') {
+          //   this.points--; //this should be KILLS counter, shall we add it? 
           } 
            
-            let index = this.droplets.indexOf(droplet);
-            this.droplets.splice(index, 1); 
+            let indexDroplet = this.droplets.indexOf(droplet);
+            this.droplets.splice(indexDroplet, 1); 
+
+            let indexKunai = this.ninja.kunaiArray.indexOf(kunai)
+            this.ninja.kunaiArray.splice(indexKunai, 1);
           } 
         })
       })
     }
-  
-  
-  
-//     this.ninja.kunaiArray.forEach((elem) => {
-//       this.kunai
-//       if ( elem.y <= this.droplet.y + this.droplet.height) {
-//         let indexWeapon = this.droplets.indexOf(droplet);
-//         this.droplets.splice(indexWeapon, 1);
-//       console.log( 'bingo!');
-//     }
-//   })
-// }
-  
-//       if ( (
-//         this.newkunai.x >= droplet.x && this.newkunai.x <= droplet.x + droplet.width || 
-//           this.newkunai.x + this.newkunai.width >= droplet.x && this.newkunai.x + this.newkunai.width <= droplet.x + droplet.width ||
-//           droplet.x >= this.newkunai.x && droplet.x <= this.newkunai.x + this.newkunai.width 
-//           )
-//           &&
-//           (
-//             this.newkunai.y >= droplet.y && this.newkunai.y <= droplet.y + droplet.height ||
-//             this.newkunai.y + this.newkunai.height >= droplet.y && this.newkunai.y + this.newkunai.height <= droplet.y + droplet.height ||
-//             droplet.y >= this.newkunai.y && droplet.y <= this.newkunai.y + this.newkunai.height 
-//           )
-//           ) {
-          
-// console.log('en el blanco!!!');
-//        if (droplet.role === 'dragon') { ///start roles 
-//         this.points++;
-//       } else if (droplet.role === 'droplet') {
-//         let index = this.droplets.indexOf(droplet);
-//         this.droplets.splice(index, 1);
-//     }
-    
-//     }
-    
-
-//   } 
 
   _writeScore() {
     this.ctx.fillStyle = "lightyellow";
@@ -204,7 +171,7 @@ class Game{
 }
 
 _gameWon(){
-  clearInterval(this.generateTimer);
+  clearInterval(this.generateTimer,this.generateInterval);
   const winPage = document.getElementById('win-page');
   winPage.style = "display: flex";
   const canvas = document.getElementById('canvas');
@@ -232,6 +199,7 @@ _gameOver() {
     this._drawKunai();
     this._drawDroplets();
     this._checkCollisions();
+    this._checkCollisionKunaiDroplet();
     this._writeScore();
     window.requestAnimationFrame(()=> this._update());
   
