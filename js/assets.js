@@ -34,6 +34,9 @@ youWin.src = '/Sounds Ninja/You win .wav';
 const youLose = new Audio();
 youLose.src = '/Sounds Ninja/You lose dead .wav';
 
+const ko = new Audio();
+ko.src = '/Sounds Ninja/SFII_67 - KO Male.wav';
+
 const startVoice = new Audio();
 startVoice.src = '/Sounds Ninja/Start voice sound.wav';
 startVoice.volume = 0.8;
@@ -56,6 +59,7 @@ throwKunai2.src = '/Sounds Ninja/throw sound1.wav.wav';
 const gameOver = new Audio();
 gameOver.src = '/Sounds Ninja/game over speech.wav';
 gameOver.volume = 0.7;
+
 const risa = new Audio();
 risa.src = '/Sounds Ninja/Ninja risa.wav';
 
@@ -66,3 +70,8 @@ dragonFx.volume = 0.8;
 const teleport = new Audio();
 teleport.src = '/Sounds Ninja/teleport sound.wav';
 teleport.volume = 0.8;
+
+
+const countDown10 = new Audio();
+countDown10.src = '/Sounds Ninja/countdown from 10.wav';
+

@@ -24,6 +24,18 @@ class Game{
     this.deadDroplet = dropletKunai2;
     this.dragonSound = dragonFx;
     this.smokeBomb = teleport;
+ 
+    this.count10 = countDown10;
+    this.count9 = countDown9;
+    this.count8 = countDown8;
+    this.count7 = countDown7;
+    this.count6 = countDown6;
+    this.count5 = countDown5;
+    this.count4 = countDown4;
+    this.count4 = countDown3;
+    this.count3 = countDown3;
+    this.count2 = countDown2;
+    this.count1 = countDown1;
   
 
   }
@@ -32,13 +44,21 @@ class Game{
     if (this._checkCollisionKunaiDroplet()) { this.kills++}
   }
 
+
+  _countDown() {
+       if (this.timer === 10) { this.count10.play()}
+  }
+
   _timer() {
+    
     this.generateTimer = setInterval(()=> {
       this.timer--;
       if (this.timer === 0 && this.lives > 0) {clearInterval(this.generateTimer); this._gameWon()}
 
   },1000)
+  
   }
+  
 
   _drawKills() {
     this.ctx.fillStyle = "lightyellow";
@@ -227,6 +247,7 @@ _gameOver() {
     this._checkCollisions();
     this._checkCollisionKunaiDroplet();
     this._writeScore();
+    this._countDown();
     window.requestAnimationFrame(()=> this._update());
   
   }
