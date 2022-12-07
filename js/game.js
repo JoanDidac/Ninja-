@@ -2,26 +2,37 @@ class Game{
   constructor(ctx) {
     this.ctx = ctx;
     this.ninja = new Player(450,500,90,90);
-    this.points = 10;
+    this.lives = 10;
     this.droplets = [];//como limitar el numero total de elementos dentro del array? arr.length = 20 clearinterval generate interval?
     this.generateInterval = undefined;
     this.kunaiArray = [];
     this.timer = 30;
     this.generateTimer = undefined;
-
     this.role = undefined;
+
+    this.kills = 0;
     
   
 
   }
 
+  _kills() {
+    if (this._checkCollisionKunaiDroplet()) { this.kills++}
+  }
+
   _timer() {
     this.generateTimer = setInterval(()=> {
       this.timer--;
-      if (this.timer === 0 && this.points > 0) {clearInterval(this.generateTimer); this._gameWon()}
+      if (this.timer === 0 && this.lives > 0) {clearInterval(this.generateTimer); this._gameWon()}
 
   },1000)
-}
+  }
+
+  _drawKills() {
+    this.ctx.fillStyle = "lightyellow";
+    this.ctx.font = "20px fantasy";
+    this.ctx.fillText(` 𝙺𝚒𝚕𝚕𝚜: ${this.kills}`, 835,515);
+  }
 
   _drawTimer() {
     this.ctx.fillStyle = "lightyellow";
@@ -123,12 +134,12 @@ class Game{
           
 // console.log('colision!');
        if (droplet.role === 'dragon') { 
-        this.points++;
+        this.lives++;
       } else if (droplet.role === 'droplet') {
-        this.points--;
+        this.lives--;
         
     }
-      if(this.points === 0 ) {
+      if(this.lives === 0 ) {
         this._gameOver(); 
       }
       let index = this.droplets.indexOf(droplet);
@@ -144,9 +155,9 @@ class Game{
           if ( kunai.x < droplet.x + droplet.width && kunai.x + kunai.width > droplet.x 
             && kunai.y < droplet.y + droplet.height && kunai.y + kunai.height > droplet.y) 
           { if (droplet.role === 'dragon') { 
-            this.points++; //this.bomb.play(); 
-          // } else if (droplet.role === 'droplet') {
-          //   this.points--; //this should be KILLS counter, shall we add it? 
+            this.lives++; //this.bomb.play(); 
+          } else if (droplet.role === 'droplet') {
+            this.kills++; //this should be KILLS counter, shall we add it? 
           } 
            
             let indexDroplet = this.droplets.indexOf(droplet);
@@ -162,7 +173,7 @@ class Game{
   _writeScore() {
     this.ctx.fillStyle = "lightyellow";
     this.ctx.font = "20px fantasy";
-    this.ctx.fillText(` 𝙿𝚘𝚒𝚗𝚝𝚜: ${this.points}`, 835,543);
+    this.ctx.fillText(` 𝙻𝚒𝚟𝚎𝚜: ${this.lives}`, 835,543);
     
   }
 
@@ -194,6 +205,8 @@ _gameOver() {
 
   _update() {
     this._clean();
+    this._kills();
+    this._drawKills()
     this._drawTimer();
     this._drawNinja();
     this._drawKunai();
@@ -212,6 +225,8 @@ _gameOver() {
     this._createDroplets();
     this._assignControls();
     this._drawTimer();
+    this._drawKills();
+    this._kills();
     this._timer();
     
   }
