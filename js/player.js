@@ -9,32 +9,17 @@ class Player { //separate player class from Boss/Enemy class in a diferent file?
         
       }
       moveRight() {
-        this.x = this.x + 15;
+        this.x = this.x + 20;
         if(this.x > 1000) { 
             this.x = 0 - this.width;
         }
 
       }
       moveLeft() {
-        this.x = this.x - 15;
+        this.x = this.x - 20;
         if(this.x + this.width < 0) {
             this.x = 1000;
         }
-      }
-      moveUp() {
-            this.y = this.y - 10; //console.log("moving up!");
-            if(this.y + this.height < 0) {
-                this.y = 600;
-                
-    
-          }
-        } 
-    
-          moveDown() {
-            this.y = this.y + 10;
-            if(this.y > 600) { 
-                this.y = 0;
-          }
         }
 
         shoot() {
@@ -45,15 +30,6 @@ class Player { //separate player class from Boss/Enemy class in a diferent file?
         }
 
         power() {console.log('POWER!!');
-          // let x = this.x;
-        this.x = [Math.floor(Math.random() * 900)];
-//after using power if first key pressed is right ninja goes straight out of the canvas, not with left.
-        
+        this.x = 450;
         }
-      
-        
-        
-  
-
-
       }//closing 

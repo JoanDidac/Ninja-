@@ -2,14 +2,13 @@ class Game{
   constructor(ctx) {
     this.ctx = ctx;
     this.ninja = new Player(450,500,90,90);
-    this.lives = 10;
+    this.lives = 3;
     this.droplets = [];//como limitar el numero total de elementos dentro del array? arr.length = 20 clearinterval generate interval?
     this.generateInterval = undefined;
     this.kunaiArray = [];
     this.timer = 30;
     this.generateTimer = undefined;
     this.role = undefined;
-
     this.kills = 0;
     
   
@@ -43,14 +42,11 @@ class Game{
     this.ctx.drawImage(this.ninja.image,this.ninja.x,this.ninja.y,this.ninja.width,this.ninja.height);
   }
 
-
   _drawKunai() {
     this.ninja.kunaiArray.forEach((elem) => {
       this.ctx.drawImage(elem.image, elem.x, elem.y, elem.width, elem.height); 
-      // console.log('drawing kunai'); //el que deberia pintar lo escoge donde? segun el role pero desde aqui puede acceder?
     })
   }
-
 
   _createDroplets() {
     this.x =  Math.floor(Math.random() * 950);
@@ -62,7 +58,7 @@ class Game{
       newDroplet._fallDown();
     
       this.droplets.push(newDroplet);
-    },1000)
+    },500)
   }
   
   _drawDroplets() {
@@ -74,7 +70,6 @@ class Game{
   }
 
   _fallDown() {
-    
     this.fallInterval = setInterval(()=> {
     this.y = this.y + 1;
     if(this.y > 600 ){
@@ -84,8 +79,7 @@ class Game{
 }, 10)
 }
 
-  _assignControls() { //añadir default event move pantalla izquierda y derecha space up and down para evitar que se mueva
-    // Controles del teclado
+  _assignControls() {
     document.addEventListener('keydown', (event) => {
       event.preventDefault(); //maybe should go under each case as event.preventDefault(); ???
       switch (event.code) {
@@ -95,13 +89,7 @@ class Game{
           break;
         case 'ArrowRight':
           this.ninja.moveRight();
-          
-          // break;
-          // case 'ArrowUp':
-          // this.ninja.moveUp();//esto acabara fuera
-          // break;
-          // case 'ArrowDown'://esto tambien
-          // this.ninja.moveDown();
+
           break;
           case 'Space':     
             this.ninja.shoot();
@@ -132,13 +120,12 @@ class Game{
           )
           ) {
           
-// console.log('colision!');
-       if (droplet.role === 'dragon') { 
-        this.lives++;
-      } else if (droplet.role === 'droplet') {
-        this.lives--;
+           if (droplet.role === 'dragon') { 
+           this.lives++;
+         } else if (droplet.role === 'droplet') {
+           this.lives--;
         
-    }
+      }
       if(this.lives === 0 ) {
         this._gameOver(); 
       }
@@ -157,7 +144,7 @@ class Game{
           { if (droplet.role === 'dragon') { 
             this.lives++; //this.bomb.play(); 
           } else if (droplet.role === 'droplet') {
-            this.kills++; //this should be KILLS counter, shall we add it? 
+            this.kills++; 
           } 
            
             let indexDroplet = this.droplets.indexOf(droplet);
@@ -182,12 +169,12 @@ class Game{
 }
 
 _gameWon(){
-  clearInterval(this.generateTimer,this.generateInterval);
+  clearInterval(this.generateTimer);
+  clearInterval(this.generateInterval);
   const winPage = document.getElementById('win-page');
   winPage.style = "display: flex";
   const canvas = document.getElementById('canvas');
   canvas.style = "display: none";
-  console.log('you win!!!');
   const losePage = document.getElementById('lose-page');
   losePage.style = "display: none";
 } //llamar
@@ -195,6 +182,7 @@ _gameWon(){
 
 _gameOver() {
   clearInterval(this.generateInterval);
+  clearInterval(this.generateTimer);
   const losePage = document.getElementById('lose-page');
   losePage.style = "display: flex";
   const canvas = document.getElementById('canvas');
@@ -205,7 +193,7 @@ _gameOver() {
 
   _update() {
     this._clean();
-    this._kills();
+    // this._kills();
     this._drawKills()
     this._drawTimer();
     this._drawNinja();
