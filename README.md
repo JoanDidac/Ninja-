@@ -1,7 +1,7 @@
 <<<<<<< HEAD
-# Baker Street
+# 美術~ 卄卂几乙ㄖ~戦争
 =======
-# NinJam: Freestyle of Death
+# 美術~ 卄卂几乙ㄖ~戦争 ㄒ卄🝗 闩尺七 ㄖﾁ 山闩尺
 >>>>>>> 42ed800e4ec63ae119ed02285752ca9e17725986
 
 <!-- When you finish, add a nice screenshot of your game -->
@@ -9,41 +9,35 @@
 
 ## Description
 
-Shitty game where user must complete 3 randomly selected recipes by shooting ingredients and landing them in the right chef in the given ampount of time.
+Small action game where player must defeat a whole batallion of samurais on his own by using his kunais,powers and movement.
 
-- There will be three chefs on top of the screen and the player's character will be at the bottom of the canvas.
-- Every ingredient that lands in the correct chef will grant 1 additional point.
-- Every ingredient that doesn't land in the correct chef will extract 1 from the live counter.
-- Every ingredient that lands between chefs without crossing paths will also extract 1 from the live counter.
-- Player will be able to move left and right and go out of canvas re-appearing on the other side.
+- There will be a ninja player in the middle of the screen at the start of the game.
+- Player is able to shoot kunais upwards to kill his enemies.
+- Player is able to move left and right through the canvas and appear on the other side.
+- Player is able to use Smoke-bomb power to teleport to the starting point in the center of the stage.
 
 
 ## User stories MVP
 
 Minimum user stories:
 
+- usar can see timer with 30 seconds countdown.
+- user can see live counter with 3 lives at start (can be increased by touching or shooting dragons)
 - user can see inicial page with image, start button and instructions.
-- user can move right and left
-- user can go out of canvas and appear on the other side (left and right)
-- screen display 3 "enemies" at the top of the canvas
-- user can shoot coloured bullets
-- user should shoot coloured bullets to the enemy assigned with that color
-- user wins when 3 bullets reach the correct colored enemy
-- user looses if bullets don't land in the right enemy (wrong color)
+- user can move right and left.
+- user can go out of canvas and appear on the other side (left and right).
+- screen displays enemies falling from the sky towards him.
+- user can shoot kunais.
+- user should shoot kunais to dragon in order to gain live points.
+- user wins if he can go 30 seconds without live counter reaching 0.
+- user looses if he is touched by enemy 3 times (may vary depending on the number of lives gained through the game)
 - user can see the recipe with detailed ingredients above each enemy
 - user can see a live counter
-- user looses if 3 bullets fall outside any of the enemies
+
 
 ## User stories Backlog
 
-- convert colored enemies to chefs with pots
-- user should see the current ingredient next to player's character
-- user should see the ingredient flying towards the enemy
-- user should see the ingredient flying past the chefs if x,y don't match
- - ingredients that have been shot should be reintroduced into the array of ingredients
- - each recipe has 3 ingredients
- - if player reaches 10 points wins
- - every 10 items shot Gordon Ramsay shows up and deflects the next ingredient
+-Add sprites to ninja for run-movement (left and right), shoot kunais, Smoke-Bomb power, death and spawn.
 
 ## File structure
 
