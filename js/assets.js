@@ -24,6 +24,11 @@ katana.src = '/images.js/weapons/Katana image2.png';
 
 // Sounds go here  ===========================>
 
+
+const coinStart = new Audio();
+coinStart.src = '/Sounds Ninja/Credit Start.mp3';
+
+
 const soundtrack = new Audio();
 soundtrack.src = '/Sounds Ninja/Soundtrack ninja.mp3';
 soundtrack.volume = 0.5;
@@ -39,7 +44,7 @@ ko.src = '/Sounds Ninja/SFII_67 - KO Male.wav';
 
 const startVoice = new Audio();
 startVoice.src = '/Sounds Ninja/Start voice sound.wav';
-startVoice.volume = 0.8;
+startVoice.volume = 0.9;
 
 const dropletKunai = new Audio();
 dropletKunai.src = '/Sounds Ninja/Droplet vs ninja slash .wav';

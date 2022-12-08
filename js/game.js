@@ -11,6 +11,7 @@ class Game{
     this.role = undefined;
     this.kills = 0;
 
+    this.creditStart = coinStart;
     this.loseSound = youLose;
     this.bso = soundtrack;
     this.win = youWin;
@@ -145,6 +146,7 @@ class Game{
           
            if (droplet.role === 'dragon') { 
            this.lives++;
+           this.dragonSound.play();
          } else if (droplet.role === 'droplet') {
            this.lives--;
            this.fx.play();
@@ -247,6 +249,7 @@ _gameOver() {
     this.speech.play();
     setTimeout(()=>{this.bso.play()},1000);
     this._update();
+    this.creditStart.play();
     this._createDroplets();
     this._assignControls();
     this._drawTimer();
