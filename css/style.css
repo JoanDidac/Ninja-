@@ -2,12 +2,12 @@
   margin: 0;
   padding: 0;
 }
+
 body {
   background-color: rgba(6, 0, 0, 0.611);
   background-image: url(/images.js/Texto\ Kanji.png);
   background-size: 13%;
 }
-/* Basic styles, change according to your style */
 
 #start-page {
   background-image: url(/images.js/Backgrounds/Neon\ ninja\ city\ image.jpg);
@@ -24,9 +24,7 @@ body {
   font-size: 33px;
   color: rgb(0, 211, 244);
   text-shadow: 0px 10px 4px rgba(255, 1, 1, 0.811);
-  filter:drop-shadow(0 0 15px #41add7) drop-shadow(0 0 50px #db3eb1) contrast(0.7) brightness(1.9);
-  
-  
+  filter: drop-shadow(0 0 15px #41add7) drop-shadow(0 0 50px #db3eb1) contrast(0.7) brightness(1.9);
 }
 
 #start-page p {
@@ -34,42 +32,39 @@ body {
   font-family: fantasy;
   text-align: center;
   color: rgba(253, 253, 253, 0.524);
-  text-shadow:0px 0px 3px rgb(0, 0, 0) ;
+  text-shadow: 0px 0px 3px rgb(0, 0, 0);
   margin-left: 180px;
   margin-right: 180px;
   margin-bottom: -50px;
-  filter:drop-shadow(0 0 15px #490172) drop-shadow(0 0 50px #bb00ff) contrast(1) brightness(2);
-  
+  filter: drop-shadow(0 0 15px #490172) drop-shadow(0 0 50px #bb00ff) contrast(1) brightness(2);
 }
 
 #start {
-   
-    color: #db3eb1;
-    border: 6px solid #db3eb1;
-    border-radius:15px;
-    padding: 15px 25px;
-    font-size: 20px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    letter-spacing:5px;
-    cursor: pointer;
-    font-weight: bolder;
-    filter: drop-shadow(0 0 15px #db3eb1) drop-shadow(0 0 50px #db3eb1) contrast(1.5) brightness(1.5);
-    transition: .5s;
-  }
-  
-  #start:hover {
-    color: black;
-    background-color: #db3eb1;
-    filter: drop-shadow(0 0 20px #db3eb1) contrast(2) brightness(2);
-  }
+  color: #db3eb1;
+  border: 6px solid #db3eb1;
+  border-radius: 15px;
+  padding: 15px 25px;
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  letter-spacing: 5px;
+  cursor: pointer;
+  font-weight: bolder;
+  filter: drop-shadow(0 0 15px #db3eb1) drop-shadow(0 0 50px #db3eb1) contrast(1.5) brightness(1.5);
+  transition: .5s;
+}
+
+#start:hover {
+  color: black;
+  background-color: #db3eb1;
+  filter: drop-shadow(0 0 20px #db3eb1) contrast(2) brightness(2);
+}
 
 
 #start-page,
 #lose-page,
-#win-page { /* NO SE TOCAAAA!*/
+#win-page {
   height: 600px;
   width: 1000px;
-  /* display: flex; */
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -84,69 +79,61 @@ body {
   background-size: 500px;
   background-position: -54px -10px;
   filter: drop-shadow(0 0 15px rgb(0, 0, 0)) drop-shadow(0 0 50px #050000);
-
 }
 
 #lose-page h1 {
-/* position: static; */
-color: black;
-text-shadow: 0px 0px 17px black;;
-font-size: 70px;
-filter: drop-shadow(0 0 15px darkred) drop-shadow(0 0 50px #ff0000) contrast(1) brightness(1.9);
+  color: black;
+  text-shadow: 0px 0px 17px black;
+  font-size: 70px;
+  filter: drop-shadow(0 0 15px darkred) drop-shadow(0 0 50px #ff0000) contrast(1) brightness(1.9);
 }
 
 #lose-page p {
-  /* position: static; */
   color: rgba(0, 0, 0, 0.887);
   font-family: fantasy;
-  text-shadow: 0px 0px 17px darkred;;
+  text-shadow: 0px 0px 17px darkred;
   font-size: 20px;
   margin-top: 30px;
   margin-bottom: -90px;
   filter: drop-shadow(0 0 15px rgba(118, 1, 1, 0.913)) drop-shadow(0 0 50px #ff0000) contrast(1) brightness(1.9);
-  }
+}
 
-  #win-page {
-    background-image: url(/images.js/Ninja\ Win-page\ 2\ neon.jpg);
-    height: 600px;
-    width: 1000px;
-    background-size: 99%;
-    box-shadow: 0px 0px 40px rgb(0, 0, 0);
-    filter: drop-shadow(0 0 15px rgb(54, 0, 93)) drop-shadow(0 0 50px #b94ed2) contrast(1) brightness(1.3);
-   
-  }
+#win-page {
+  background-image: url(/images.js/Ninja\ Win-page\ 2\ neon.jpg);
+  height: 600px;
+  width: 1000px;
+  background-size: 99%;
+  box-shadow: 0px 0px 40px rgb(0, 0, 0);
+  filter: drop-shadow(0 0 15px rgb(54, 0, 93)) drop-shadow(0 0 50px #b94ed2) contrast(1) brightness(1.3);
+}
 
-  #win-page h1 {
-    color: rgb(185, 140, 253);
-    font-size: 60px;
-    text-shadow: 0px 10px 4px rgba(213, 1, 255, 0.816);
-    filter:drop-shadow(0 0 15px #41add7) drop-shadow(0 0 50px #9c3edb) contrast(0.7) brightness(1.9);
-    margin-bottom: 150px;
-  }
+#win-page h1 {
+  color: rgb(185, 140, 253);
+  font-size: 60px;
+  text-shadow: 0px 10px 4px rgba(213, 1, 255, 0.816);
+  filter: drop-shadow(0 0 15px #41add7) drop-shadow(0 0 50px #9c3edb) contrast(0.7) brightness(1.9);
+  margin-bottom: 150px;
+}
 
-#ninjaWin{
+#ninjaWin {
   background-image: url(/images.js/Ninja\ Win-page\ 2\ neon.jpg);
   display: none;
   height: 600px;
   width: 1000px;
 }
 
+#ronin {
+  background-image: url(/images.js/Texto\ Kanji.png);
+  width: 8%;
+  filter: drop-shadow(0 0 15px rgb(93, 0, 0)) drop-shadow(0 0 50px #ff0202) contrast(1) brightness(1.9);
+}
 
-  #ronin {
-    background-image:url(/images.js/Texto\ Kanji.png);
-    /* background-clip: content-box; */
-    /* background: transparent; */
-    width: 8%;
-    filter: drop-shadow(0 0 15px rgb(93, 0, 0)) drop-shadow(0 0 50px #ff0202) contrast(1) brightness(1.9);
-  
-  }
-
-  #canvas {
-    background-image: url('/images.js/\ Neo\ Geo\ Dojo.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
+#canvas {
+  background-image: url('/images.js/\ Neo\ Geo\ Dojo.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
 
 canvas {
   border: 1px solid black;
@@ -155,10 +142,8 @@ canvas {
   margin-top: 30px;
   margin-bottom: 50px;
   box-shadow: 0px 0px 40px rgb(255, 255, 255);
-    filter: drop-shadow(0 0 15px rgb(255, 255, 255)) drop-shadow(0 0 50px #ffffff)
+  filter: drop-shadow(0 0 15px rgb(255, 255, 255)) drop-shadow(0 0 50px #ffffff)
 }
-
-/* Auxiliar classes */
 
 .hidden {
   display: none;
